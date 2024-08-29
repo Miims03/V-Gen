@@ -1,0 +1,25 @@
+.text-shadow {
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.6); /* Ajuster les valeurs selon les besoins */
+  }
+
+.aboutCard:hover{
+    @apply
+    border-white
+}
+
+.aboutCard:hover h1{
+    @apply
+    duration-500
+    text-[2.5rem]
+}
+
+.aboutCard:hover p{
+    @apply
+    duration-500
+    text-slate-300
+}
+.aboutCard:hover img{
+  @apply
+  duration-500
+  scale-125
+}

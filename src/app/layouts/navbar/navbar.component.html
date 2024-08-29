@@ -1,0 +1,30 @@
+<main class="h-[8vh] flex justify-between items-center px-10 select-none" id="home">
+
+    <a class=" h-[4rem]  flex justify-start items-center w-[15rem]">
+        <img src="testt.svg" class="w-[4rem] h-[4rem] hover:scale-105 duration-200 cursor-pointer">
+    </a>
+    
+    <div class="flex justify-center items-end gap-8 p-4">
+        <nav class="flex w-[10rem] gap-5 justify-end">
+            <a [routerLink]="[]" fragment="home" class="text-slate-300 hover:text-white hover:shadow-lg shadow-white duration-500 hover:-translate-y-2  text-end">HOME</a>
+            <a [routerLink]="[]" fragment="about" class="text-slate-300 hover:text-white hover:shadow-lg shadow-white duration-500 hover:-translate-y-2  text-end">ABOUT</a>
+        </nav>
+        <a class="text-3xl font-semibold text-slate-200 hover:text-4xl hover:text-white duration-500 text-center text-shadow" routerLink="/">
+            V-GEN   
+        </a>
+        <nav class="flex gap-5 w-[10rem] justify-start">
+            <a routerLink="/" class="text-slate-300 hover:text-white hover:shadow-lg shadow-white duration-500 hover:-translate-y-2  text-end">TARIF</a>
+            <a routerLink="/" class="text-slate-300 hover:text-white hover:shadow-lg shadow-white duration-500 hover:-translate-y-2 text-start">CONTACT</a>
+        </nav>
+    </div>
+    
+    <div class="flex gap-3 w-[15rem] justify-end">
+        <a 
+        routerLink="/login"
+        class="btn hover:border-[#8e477d] hover:text-white btn-outline duration-500 hover:bg-[#8e477d] border-1 border-transparent border-slate-300 text-slate-300 text-base">Se Connecter</a>
+        <a 
+        routerLink="/"
+        class="btn hover:border-transparent hover:bg-transparent font-semibold hover:text-[#ad5799] bg-[#35478b] duration-500  text-slate-300 text-base">Inscription</a>
+    </div>
+    <!-- <div class="rounded-full ring-2 ring-slate-300 w-[3rem] h-[3rem] hover:scale-105 duration-500 cursor-pointer"></div> -->
+</main>

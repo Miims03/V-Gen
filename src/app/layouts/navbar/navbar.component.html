@@ -1,20 +1,31 @@
 <main class="h-[8vh] flex justify-between items-center px-10 select-none" id="home">
 
     <a class=" h-[4rem]  flex justify-start items-center w-[15rem]">
-        <img src="testt.svg" class="w-[4rem] h-[4rem] hover:scale-105 duration-200 cursor-pointer">
+        <img src="testt.svg" class="w-[4rem] h-[4rem] hover:scale-105 duration-200 cursor-pointer fixed z-30"
+        routerLink="/"
+        (click)="scrollToSection('home')">
+        
     </a>
     
     <div class="flex justify-center items-end gap-8 p-4">
         <nav class="flex w-[10rem] gap-5 justify-end">
-            <a [routerLink]="[]" fragment="home" class="text-slate-300 hover:text-white hover:shadow-lg shadow-white duration-500 hover:-translate-y-2  text-end">HOME</a>
-            <a [routerLink]="[]" fragment="about" class="text-slate-300 hover:text-white hover:shadow-lg shadow-white duration-500 hover:-translate-y-2  text-end">ABOUT</a>
+            <a (click)="scrollToSection('home')" 
+            routerLink="/"
+            class="text-slate-300 hover:text-white hover:shadow-lg shadow-white duration-500 hover:-translate-y-2 text-end cursor-pointer">HOME</a>
+            <a (click)="scrollToSection('about')" 
+            routerLink="/"
+            class="text-slate-300 hover:text-white hover:shadow-lg shadow-white duration-500 hover:-translate-y-2 text-end cursor-pointer">ABOUT</a>
         </nav>
         <a class="text-3xl font-semibold text-slate-200 hover:text-4xl hover:text-white duration-500 text-center text-shadow" routerLink="/">
             V-GEN   
         </a>
         <nav class="flex gap-5 w-[10rem] justify-start">
-            <a routerLink="/" class="text-slate-300 hover:text-white hover:shadow-lg shadow-white duration-500 hover:-translate-y-2  text-end">TARIF</a>
-            <a routerLink="/" class="text-slate-300 hover:text-white hover:shadow-lg shadow-white duration-500 hover:-translate-y-2 text-start">CONTACT</a>
+            <a (click)="scrollToSection('produits')" 
+            routerLink="/"
+            class="text-slate-300 hover:text-white hover:shadow-lg shadow-white duration-500 hover:-translate-y-2 text-end cursor-pointer">PRODUITS</a>
+            <a (click)="scrollToSection('contact')" 
+            routerLink="/"
+            class="text-slate-300 hover:text-white hover:shadow-lg shadow-white duration-500 hover:-translate-y-2 text-start cursor-pointer">CONTACT</a>
         </nav>
     </div>
     

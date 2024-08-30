@@ -21,6 +21,8 @@
     "animate.css": "^4.1.1",
     "aos": "^2.3.4",
     "axios": "^1.7.5",
+    "jquery": "^3.7.1",
+    "ngx-page-scroll-core": "^13.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.10"
@@ -31,6 +33,7 @@
     "@angular/compiler-cli": "^18.2.0",
     "@types/aos": "^3.0.7",
     "@types/jasmine": "~5.1.0",
+    "@types/jquery": "^3.5.30",
     "autoprefixer": "^10.4.20",
     "daisyui": "^4.12.10",
     "jasmine-core": "~5.2.0",

@@ -1,0 +1,31 @@
+<div class="card bg-base-100 shadow-xl w-[25rem]" 
+    data-aos="flip-left" 
+    data-aos-duration="1000" 
+    [attr.data-aos-delay]="delay">
+    <figure>
+      <img
+        class="hover:scale-105 duration-500 cursor-pointer"
+        src={{image}}
+        alt="Shoes" />
+    </figure>
+    <div class="card-body">
+      <h2 
+      class="card-title text-slate-100 font-semibold text-2xl mb-5 text-shadow">
+      Composé -
+      <span 
+      [ngStyle]="{'color': '#' + color}" 
+      class="font-bold no-shadow">{{title}}</span></h2>
+      <div class="card-actions justify-end">
+        <button 
+        class="btn text-slate-200"
+        [ngStyle]="{
+            'background-color': Hover ? 'transparent' : '#' + color,
+            'color': Hover ? '#' + color : 'white',
+            'border-color': Hover ? '#' + color : 'transparent'
+          }"
+        (mouseover)="Hover = true" 
+        (mouseleave)="Hover = false"
+        >En savoir plus</button>
+      </div>
+    </div>
+  </div>

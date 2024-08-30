@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { ProduitsCardComponent } from '../produits-card/produits-card.component';
 
 @Component({
-  selector: 'app-navbar',
+  selector: 'app-produits',
   standalone: true,
-  imports: [RouterLink],
-  templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css'
+  imports: [ProduitsCardComponent ],
+  templateUrl: './produits.component.html',
+  styleUrl: './produits.component.css'
 })
-export class NavbarComponent {
+export class ProduitsComponent {
   scrollToSection(sectionId: string) {
     const element = document.getElementById(sectionId);
     if (element) {

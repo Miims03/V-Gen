@@ -1,0 +1,31 @@
+<main class="h-screen flex flex-col justify-center items-center gap-20  border-none hero w-full  bg-gradient-to-br from-[#35478b] via-black to-[#8e477d] relative"
+>
+<figure (click)="scrollToSection('about')" class="absolute top-10 right-16 text-white animate-pulse cursor-pointer">
+    <img src="arrowTop.svg" class="w-[2rem]">
+</figure>
+<figure (click)="scrollToSection('contact')" class="absolute bottom-14 left-16 text-white animate-pulse cursor-pointer">
+    <img src="arrowBot.svg" class="w-[2rem]">
+</figure>
+
+    <h1 class="text-slate-100 font-semibold text-5xl mb-5 text-shadow">Nos Produits</h1>
+    <div class="flex justify-center items-center gap-10">
+    <app-produits-card 
+        [image]="'cv.png'" 
+        [title]="'V'"
+        [color]="'1976a7'"
+        [delay]="0"
+    />
+    <app-produits-card
+        [image]="'cvp.png'" 
+        [title]="'VP'"
+        [color]="'5a9e26'"
+        [delay]="500"
+    />
+    <app-produits-card 
+        [image]="'cvb.png'" 
+        [title]="'VB'"
+        [color]="'b12991'"
+        [delay]="1000"
+    />
+</div>
+</main>

@@ -2,7 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-
+html {
+  overflow: hidden;
+  /* scroll-behavior: smooth; */
+}
 .text-shadow {
     text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.6); /* Ajuster les valeurs selon les besoins */
   }
+.no-shadow {
+  text-shadow: 0 0 0;
+}

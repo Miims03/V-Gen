@@ -14,18 +14,30 @@ import 'animate.css'
 })
 export class AppComponent implements AfterViewInit {
   private currentSectionIndex = 0
+  private isScrolling = false
 
   ngAfterViewInit() {
   }
 
   @HostListener('window:wheel', ['$event'])
+  
   onScroll(event: WheelEvent) {
+
+    if (this.isScrolling) {
+      return
+    }
+
+    this.isScrolling = true;
 
     if (event.deltaY > 0) {
       this.goToNextSection()
     } else if (event.deltaY < 0) {
       this.goToPreviousSection()
     }
+    setTimeout(() => {
+      this.isScrolling = false;
+    }, 800)
+  
   }
 
   private goToNextSection() {

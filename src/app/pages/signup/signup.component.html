@@ -1,1 +1,61 @@
-<p>signup works!</p>
+<main
+    class="flex flex-col  justify-start items-center h-[92vh] bg-gradient-to-br from-[#35478b] via-black to-[#8e477d] py-36 ">
+    <div class="flex flex-col justify-start items-center  animate__animated animate__fadeIn animate__slower gap-3 
+    h-[10rem]">
+        <h1 class="text-4xl font-bold text-slate-300">Inscription à V-Gen</h1>
+        <label class="label cursor-pointer flex justify-center items-center gap-2">
+            <input type="checkbox" class="checkbox  w-5 h-5" [(ngModel)]="premium" name="premium" />
+            <span class="label-text">Premium</span>
+        </label>
+        <div role="alert" class="alert w-[25rem]  py-2.5 " [ngClass]="{'bg-[#4a1e3f]': !succ ,'bg-[#465db3]': succ}"
+            *ngIf="errorMessage">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span>{{ errorMessage }}</span>
+        </div>
+    </div>
+    <form (ngSubmit)="register()" #signupForm="ngForm"
+        class="flex flex-col justify-start items-center gap-3 w-[20.6rem] rounded-3xl animate__animated animate__fadeIn animate__slower  animate__delay-1s mt-5">
+        <div class="flex justify-between w-full">
+            <label class="input input-bordered flex items-center gap-2 w-[10rem] h-[2.5rem] overflow-hidden px-4">
+                <input type="text" class="grow" placeholder="Prenom" [(ngModel)]="firstName" name="firstName"
+                    required />
+            </label>
+            <label class="input input-bordered flex items-center gap-2 w-[10rem] h-[2.5rem] overflow-hidden px-4">
+                <input type="text" class="grow" placeholder="Nom" [(ngModel)]="lastName" name="lastName" required />
+            </label>
+        </div>
+        <label class="input input-bordered flex items-center gap-2 w-full h-[2.5rem] overflow-hidden px-4">
+            <input type="date" class="grow" placeholder="Date de naissance" value="date" [(ngModel)]="dob" name="dob"
+                required />
+        </label>
+        <label class="input input-bordered flex items-center gap-2 w-full h-[2.5rem] overflow-hidden px-4">
+            <input type="text" class="grow" placeholder="Nom d'utilisateur" [(ngModel)]="username" name="username"
+                required />
+        </label>
+        <div class="flex justify-between w-full">
+            <label class="input input-bordered flex items-center gap-2 w-[10rem] h-[2.5rem] overflow-hidden px-4 ">
+                <input type="password" class="grow" placeholder="Mot de passe" [(ngModel)]="password" name="password"
+                    required />
+            </label>
+            <label class="input input-bordered flex items-center gap-2 w-[10rem] h-[2.5rem] overflow-hidden px-4">
+                <input type="password" class="grow" placeholder="Confirmation" [(ngModel)]="confirmPassword"
+                    name="confirmPassword" required />
+            </label>
+        </div>
+        <div class="w-full flex items-center justify-between">
+            <label class="label cursor-pointer flex justify-center items-center gap-3">
+                <input type="checkbox" class="checkbox  w-5 h-5" [(ngModel)]="acceptCG" name="acceptCG" />
+                <span class="label-text">Accepter les CG</span>
+            </label>
+            <a class="label-text cursor-pointer text-[#465db3] hover:text-[#8e477d] duration-300">Conditions
+                générales</a>
+        </div>
+        <button class="btn w-full" type="submit">
+            S'enregistrer
+        </button>
+    </form>
+</main>

@@ -1,32 +1,42 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ApiService } from '../../services/api.service';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../../services/auth.service';
+import { Router , RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   standalone: true, // Cela indique que le composant est autonome
   templateUrl: './login.component.html',
-  imports: [FormsModule , CommonModule] // Importez FormsModule ici directement
+  imports: [FormsModule , CommonModule, RouterLink] // Importez FormsModule ici directement
 })
 export class LoginComponent {
-  email: string = '';
+  username: string = '';
   password: string = '';
   errorMessage: string = '';
+  alert: string = '';
+  succ: boolean = false
 
-  constructor(private apiService: ApiService) {}
+  constructor(private authService: AuthService , private router: Router) {}
 
-  async onSubmit() {
-    try {
-      const response = await this.apiService.login(this.email, this.password);
+  login() {
+    const success = this.authService.login(this.username, this.password);
 
-      if (response.success) {
-        console.log('lalalala');
-      } else {
-        this.errorMessage = response.message;
-      }
-    } catch (error) {
-      this.errorMessage = 'Login failed';
+    if (!success) {
+      this.errorMessage = "Nom d'utilisateur ou mot de passe incorrect.";
+      this.alert = "alert alert-danger";
+      this.succ = false;
+    } else {
+      this.errorMessage = "Connexion réussie.";
+      this.alert = "alert alert-success";
+      this.succ = true;
+      setTimeout(() => {
+        this.router.navigate(['/profile']).then(() => {
+          window.location.reload(); // Forcer le rafraîchissement de la page
+        });
+      }, 2000);
+     
     }
   }
+
 }

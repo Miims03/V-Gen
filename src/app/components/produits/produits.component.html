@@ -1,9 +1,9 @@
 <main class="h-screen flex flex-col justify-center items-center gap-20  border-none hero w-full  bg-gradient-to-br from-[#35478b] via-black to-[#8e477d] relative"
 >
-<figure (click)="scrollToSection('about')" class="absolute top-10 right-16 text-white animate-pulse cursor-pointer">
+<figure (click)="scrollToSection('about')" class="absolute top-10 right-28 text-white animate-pulse cursor-pointer">
     <img src="arrowTop.svg" class="w-[2rem]">
 </figure>
-<figure (click)="scrollToSection('contact')" class="absolute bottom-14 left-16 text-white animate-pulse cursor-pointer">
+<figure (click)="scrollToSection('contact')" class="absolute bottom-14 left-28 text-white animate-pulse cursor-pointer">
     <img src="arrowBot.svg" class="w-[2rem]">
 </figure>
 
@@ -14,18 +14,21 @@
         [title]="'V'"
         [color]="'1976a7'"
         [delay]="0"
+        [premium]="false"
     />
     <app-produits-card
         [image]="'cvp.png'" 
         [title]="'VP'"
         [color]="'5a9e26'"
         [delay]="500"
+        [premium]="true"
     />
     <app-produits-card 
         [image]="'cvb.png'" 
         [title]="'VB'"
         [color]="'b12991'"
         [delay]="1000"
+        [premium]="false"
     />
 </div>
 </main>

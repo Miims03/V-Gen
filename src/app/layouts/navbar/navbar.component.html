@@ -2,40 +2,64 @@
 
     <a class=" h-[4rem]  flex justify-start items-center w-[15rem]">
         <img src="testt.svg" class="w-[4rem] h-[4rem] hover:scale-105 duration-200 cursor-pointer fixed z-30"
-        routerLink="/"
-        (click)="scrollToSection('home')">
-        
+            routerLink="/" (click)="scrollToSection('home')">
+
     </a>
-    
+
     <div class="flex justify-center items-end gap-8 p-4">
         <nav class="flex w-[10rem] gap-5 justify-end">
-            <a (click)="scrollToSection('home')" 
-            routerLink="/"
-            class="text-slate-300 hover:text-white hover:shadow-lg shadow-white duration-500 hover:-translate-y-2 text-end cursor-pointer">HOME</a>
-            <a (click)="scrollToSection('about')" 
-            routerLink="/"
-            class="text-slate-300 hover:text-white hover:shadow-lg shadow-white duration-500 hover:-translate-y-2 text-end cursor-pointer">ABOUT</a>
+            <a (click)="scrollToSection('home')" routerLink="/"
+                class="text-slate-300 hover:text-white hover:shadow-lg shadow-white duration-500 hover:-translate-y-2 text-end cursor-pointer">HOME</a>
+            <a (click)="scrollToSection('about')" routerLink="/"
+                class="text-slate-300 hover:text-white hover:shadow-lg shadow-white duration-500 hover:-translate-y-2 text-end cursor-pointer">ABOUT</a>
         </nav>
-        <a class="text-3xl font-semibold text-slate-200 hover:text-4xl hover:text-white duration-500 text-center text-shadow" routerLink="/">
-            V-GEN   
+        <a class="text-3xl font-semibold text-slate-200 hover:text-4xl hover:text-white duration-500 text-center text-shadow"
+            routerLink="/">
+            V-GEN
         </a>
         <nav class="flex gap-5 w-[10rem] justify-start">
-            <a (click)="scrollToSection('produits')" 
-            routerLink="/"
-            class="text-slate-300 hover:text-white hover:shadow-lg shadow-white duration-500 hover:-translate-y-2 text-end cursor-pointer">PRODUITS</a>
-            <a (click)="scrollToSection('contact')" 
-            routerLink="/"
-            class="text-slate-300 hover:text-white hover:shadow-lg shadow-white duration-500 hover:-translate-y-2 text-start cursor-pointer">CONTACT</a>
+            <a (click)="scrollToSection('produits')" routerLink="/"
+                class="text-slate-300 hover:text-white hover:shadow-lg shadow-white duration-500 hover:-translate-y-2 text-end cursor-pointer">PRODUITS</a>
+            <a (click)="scrollToSection('contact')" routerLink="/"
+                class="text-slate-300 hover:text-white hover:shadow-lg shadow-white duration-500 hover:-translate-y-2 text-start cursor-pointer">CONTACT</a>
         </nav>
     </div>
-    
-    <div class="flex gap-3 w-[15rem] justify-end">
-        <a 
-        routerLink="/login"
-        class="btn hover:border-[#8e477d] hover:text-white btn-outline duration-500 hover:bg-[#8e477d] border-1 border-transparent border-slate-300 text-slate-300 text-base">Se Connecter</a>
-        <a 
-        routerLink="/"
-        class="btn hover:border-transparent hover:bg-transparent font-semibold hover:text-[#ad5799] bg-[#35478b] duration-500  text-slate-300 text-base">Inscription</a>
+
+    <div *ngIf="!isLoggedIn" class="flex gap-3 w-[15rem] justify-end">
+        <a routerLink="/login"
+            class="btn hover:border-[#8e477d] hover:text-white btn-outline duration-500 hover:bg-[#8e477d] border-1 border-transparent border-slate-300 text-slate-300 text-base">Se
+            Connecter</a>
+        <a routerLink="/signup"
+            class="btn hover:border-transparent hover:bg-transparent font-semibold hover:text-[#ad5799] bg-[#35478b] duration-500  text-slate-300 text-base">Inscription</a>
     </div>
-    <!-- <div class="rounded-full ring-2 ring-slate-300 w-[3rem] h-[3rem] hover:scale-105 duration-500 cursor-pointer"></div> -->
+    <div *ngIf="isLoggedIn" class="flex gap-3 w-[15rem] justify-end dropdown dropdown-bottom dropdown-end">
+        <div class='rounded-full ring-2 ring-slate-300 w-[3rem] h-[3rem] hover:scale-105 duration-500 cursor-pointer z-50'
+            tabindex="0" role="button">
+            <img src='{{user.profileImg}}' alt="">
+            <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-50 w-52 p-2 mt-5 ">
+                <li class="text-center mt-2 mb-3 font-semibold text-xl">
+                    {{user.username}} 
+                </li>
+                <li routerLink="/profile">
+                    <a>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                        </svg>
+                        Profile</a>
+                </li>
+                <li class="" (click)="onLogout()">
+                    <a>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M8.25 9V5.25A2.25 2.25 0 0 1 10.5 3h6a2.25 2.25 0 0 1 2.25 2.25v13.5A2.25 2.25 0 0 1 16.5 21h-6a2.25 2.25 0 0 1-2.25-2.25V15m-3 0-3-3m0 0 3-3m-3 3H15" />
+                        </svg>
+                        Se déconnecter</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
 </main>

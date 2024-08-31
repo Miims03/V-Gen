@@ -14,6 +14,7 @@ export class ProduitsCardComponent implements OnInit {
   @Input() title: string = "";
   @Input() color: string = "";
   @Input() delay = 500;
+  @Input() premium: boolean = false;
   Hover: boolean = false
   ngOnInit() {
     AOS.init();

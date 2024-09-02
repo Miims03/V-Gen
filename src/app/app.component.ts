@@ -4,12 +4,13 @@ import { NavbarComponent } from "./layouts/navbar/navbar.component"
 import { ViewportScroller } from '@angular/common'
 import { Router, NavigationEnd } from '@angular/router'
 import 'animate.css'
+import { FooterComponent } from "./layouts/footer/footer.component";
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NavbarComponent],
+  imports: [RouterOutlet, NavbarComponent, FooterComponent],
   templateUrl: './app.component.html',
 })
 export class AppComponent implements AfterViewInit {
@@ -36,12 +37,12 @@ export class AppComponent implements AfterViewInit {
     }
     setTimeout(() => {
       this.isScrolling = false;
-    }, 800)
+    }, 1000)
   
   }
 
   private goToNextSection() {
-    const sections = ['home', 'about', 'produits']
+    const sections = ['home', 'about', 'produits','contact']
     if (this.currentSectionIndex < sections.length - 1) {
       this.currentSectionIndex++
       this.scrollToSection(sections[this.currentSectionIndex])
@@ -49,7 +50,7 @@ export class AppComponent implements AfterViewInit {
   }
 
   private goToPreviousSection() {
-    const sections = ['home', 'about', 'produits']
+    const sections = ['home', 'about', 'produits','contact']
     if (this.currentSectionIndex > 0) {
       this.currentSectionIndex--
       this.scrollToSection(sections[this.currentSectionIndex])

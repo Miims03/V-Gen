@@ -9,9 +9,9 @@
     <div class="flex justify-center items-end gap-8 p-4">
         <nav class="flex w-[10rem] gap-5 justify-end">
             <a (click)="scrollToSection('home')" routerLink="/"
-                class="text-slate-300 hover:text-white hover:shadow-lg shadow-white duration-500 hover:-translate-y-2 text-end cursor-pointer">HOME</a>
+                class="text-slate-300 hover:text-white hover:shadow-lg shadow-white duration-500 hover:-translate-y-2 text-end cursor-pointer">ACCUEIL</a>
             <a (click)="scrollToSection('about')" routerLink="/"
-                class="text-slate-300 hover:text-white hover:shadow-lg shadow-white duration-500 hover:-translate-y-2 text-end cursor-pointer">ABOUT</a>
+                class="text-slate-300 hover:text-white hover:shadow-lg shadow-white duration-500 hover:-translate-y-2 text-end cursor-pointer">A PROPOS</a>
         </nav>
         <a class="text-3xl font-semibold text-slate-200 hover:text-4xl hover:text-white duration-500 text-center text-shadow"
             routerLink="/">
@@ -32,12 +32,15 @@
         <a routerLink="/signup"
             class="btn hover:border-transparent hover:bg-transparent font-semibold hover:text-[#ad5799] bg-[#35478b] duration-500  text-slate-300 text-base">Inscription</a>
     </div>
-    <div *ngIf="isLoggedIn" class="flex gap-3 w-[15rem] justify-end dropdown dropdown-bottom dropdown-end">
-        <div class='rounded-full ring-2 ring-slate-300 w-[3rem] h-[3rem] hover:scale-105 duration-500 cursor-pointer z-50'
-            tabindex="0" role="button">
-            <img src='{{user.profileImg}}' alt="">
-            <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-50 w-52 p-2 mt-5 ">
-                <li class="text-center mt-2 mb-3 font-semibold text-xl">
+    <div *ngIf="isLoggedIn" class="flex gap-3 w-[15rem] justify-end dropdown dropdown-bottom dropdown-end dropdown-hover">
+        <div class='rounded-full ring-2 ring-slate-300 w-[3rem] h-[3rem] hover:scale-105 duration-500 cursor-pointer z-50 '
+            tabindex="1" role="button">
+            <div class="overflow-hidden w-full h-full rounded-full" [ngClass]="{'bg-[#ffbf003b]': user.premium}">
+                <img src='{{user.profileImg}}' alt="">
+            </div>
+            
+            <ul class="dropdown-content menu bg-base-100 rounded-box z-50 w-52 p-2 mt-5 border-2 border-slate-400">
+                <li class="text-center mt-1 mb-2.5 font-semibold text-xl text-slate-200">
                     {{user.username}} 
                 </li>
                 <li routerLink="/profile">

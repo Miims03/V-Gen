@@ -1,0 +1,12 @@
+<main class="w-full h-full relative flex flex-col justify-start items-center overflow-auto">
+    <h1 class="text-2xl font-semibold text-slate-200 flex justify-center items-center 
+    py-4 px-5 border-b-2 border-r-2 border-slate-400 rounded-br-2xl absolute top-0 left-0">
+        {{title}}
+    </h1>
+    <div class="px-[5rem] gap-10 mt-[7rem] text-xl grid grid-cols-5 grid-rows-4  h-[calc(100vh-8rem)]">
+        <div *ngFor="let img of images" class="w-[6rem] h-[6rem] border rounded-full flex justify-start cursor-pointer"
+        (click)="onImageClick(img) ">
+            <img [src]="img" class="w-full h-full object-cover rounded-full">
+        </div>
+    </div>
+</main>

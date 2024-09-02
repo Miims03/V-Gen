@@ -1,0 +1,32 @@
+<main class="w-full h-full relative flex flex-col justify-start items-center  ">
+    <h1 class="text-2xl font-semibold text-slate-200 flex justify-center items-center 
+     py-4 px-5 border-b-2 border-r-2 border-slate-400 rounded-br-2xl absolute top-0 left-0">
+        {{title}}
+    </h1>
+    <div role="alert" class="absolute top-[6rem] alert w-[30rem]  py-2.5 text-center" [ngClass]="{'bg-[#4a1e3f]': !succ ,'bg-[#465db3]': succ}"
+            *ngIf="errorMsg">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span class="w-full text-center">{{ errorMsg }}</span>
+        </div>
+    <form (ngSubmit)="changePassword()" 
+        class="px-[10rem] w-[35rem] mt-[12rem] text-xl text-slate-300 flex justify-center items-center flex-col gap-3 ">
+        <label for="currentPsw" class="flex flex-col justify-center items-start gap-3 h-[2.5rem] w-[18rem]">
+            <input [(ngModel)]="currentPswVerify" type="password" name="currentPsw" class="pb-1  border w-full px-5 text-center bg-transparent border-slate-300 text-slate-300 h-full rounded-lg cursor-pointer " [placeholder]="'Mot de passe actuel'">
+        </label>
+        <label for="currentPsw" class="flex flex-col justify-center items-start gap-3  h-[2.5rem] w-[18rem]" >
+            <input [(ngModel)]="newPsw" type="password" name="currentPsw" class="pb-1  border w-full px-5 text-center bg-transparent border-slate-300 text-slate-300 h-full rounded-lg cursor-pointer" [placeholder]="'Nouveau mot de passe'">
+        </label>
+        <label for="currentPsw" class="flex flex-col justify-center items-start gap-3  h-[2.5rem] w-[18rem]" >
+            <input [(ngModel)]="newPswVerify" type="password" name="currentPsw" class="pb-1  border w-full px-5 text-center bg-transparent border-slate-300 text-slate-300 h-full rounded-lg cursor-pointer" [placeholder]="'Nouveau mot de passe'">
+        </label>
+        <button 
+        class="mt-10 border w-[18rem] border-slate-300 text-slate-300 py-2 flex justify-center items-center rounded-lg hover:bg-[#ffbf003b] hover:border-[#ffbf00] duration-500">
+            Modifier
+        </button>
+    </form>
+
+</main>

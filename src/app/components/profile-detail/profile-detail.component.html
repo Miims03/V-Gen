@@ -1,0 +1,29 @@
+<main class="w-full h-full relative flex flex-col justify-start items-center ">
+    <h1 class="text-2xl font-semibold text-slate-200 flex justify-center items-center 
+     py-4 px-5 border-b-2 border-r-2 border-slate-400 rounded-br-2xl absolute top-0 left-0">
+        {{title}}
+    </h1>
+    <h2 class="mt-[6rem] text-2xl text-slate-200 text-center">Bienvenu sur votre profil <br>{{user.username}}</h2>
+    <div class="px-[10rem] w-full mt-[5rem] text-xl text-slate-300 flex justify-center items-start gap-1">
+        <div class="w-[49.5%] text-end">
+            <p>Nom d'utilisateur </p>
+            <p>Prénom </p>
+            <p>Nom </p>
+            <p>Date de naissance </p>
+            <p>Mot de passe</p>
+            <p>Membre Premium</p>
+        </div>
+        <div class="divider divider-horizontal divider-neutral w-[1%]"></div>
+        <div class="text-slate-200 w-[49.5%]">
+            <p>{{user.username}}</p>
+            <p>{{user.firstName}}</p>
+            <p>{{user.lastName }}</p>
+            <p>{{user.dob | date: "d MMMM y" }}</p>
+            <input type="password" value="password" disabled class="bg-transparent"/>
+            <p *ngIf="user.premium">Oui</p>
+            <p *ngIf="!user.premium">Non</p>
+            
+        </div>
+    </div>
+    
+</main>

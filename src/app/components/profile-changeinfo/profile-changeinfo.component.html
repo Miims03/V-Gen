@@ -1,0 +1,87 @@
+<main class="w-full h-full relative flex flex-col justify-start items-center ">
+    <h1 class="text-2xl font-semibold text-slate-200 flex justify-center items-center 
+     py-4 px-5 border-b-2 border-r-2 border-slate-400 rounded-br-2xl absolute top-0 left-0">
+        {{title}}
+    </h1>
+    <div role="alert" class="absolute top-[7rem] alert w-[30rem]  py-2.5 text-center" [ngClass]="{'bg-[#4a1e3f]': !succ ,'bg-[#465db3]': succ}"
+            *ngIf="errorMsg">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span class="w-full text-center">{{ errorMsg }}</span>
+        </div>
+    <div class="px-[10rem] w-full mt-[12rem] text-xl text-slate-300 flex justify-center items-center gap-3 flex-col">
+        <div class="flex justify-center items-center h-[2.5rem] gap-1 ">
+            <input (click)="toModifUsername()"
+                class="text-center bg-transparent border border-slate-300 text-slate-300 h-full pb-1  rounded-lg cursor-pointer w-[18rem]"
+                type="text" name="" id="" *ngIf="!modifUsername" [placeholder]="'Modifier le username'">
+            <input 
+                [(ngModel)]="newUsername"
+                class="text-center bg-transparent border border-slate-300 text-slate-300 h-full pb-1 rounded-lg w-[15.1rem]"
+                type="text" name="" id="" *ngIf="modifUsername" [value]="user.username">
+            
+            <button (click)="toModifUsername()"
+            class="border  rounded-lg px-2 h-full border-red-700 text-red-600 hover:text-slate-200 hover:bg-red-700 duration-500" *ngIf="modifUsername">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                  </svg>
+            </button>
+        </div>
+        
+        <div class="flex justify-center items-center h-[2.5rem] gap-1">
+            <input (click)="toModifFirstname()"
+                class="text-center bg-transparent border border-slate-300 text-slate-300 h-full pb-1 rounded-lg cursor-pointer  w-[18rem]"
+                type="text" name="" id="" *ngIf="!modifFirstname" [placeholder]="'Modifier le prénom'">
+            <input 
+                [(ngModel)]="newFirstname"
+                class="text-center bg-transparent border border-slate-300 text-slate-300 h-full pb-1 rounded-lg w-[15.1rem]"
+                type="text" name="" id="" *ngIf="modifFirstname" [value]="user.firstName">
+            <button (click)="toModifFirstname()"
+            class="border  rounded-lg px-2 h-full border-red-700 text-red-600 hover:text-slate-200 hover:bg-red-700 duration-500" *ngIf="modifFirstname">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                  </svg>
+            </button>
+        </div>
+
+        <div class="flex justify-center items-center h-[2.5rem] gap-1">
+            <input (click)="toModifLastname()"
+                class="text-center bg-transparent border border-slate-300 text-slate-300 h-full pb-1 rounded-lg cursor-pointer  w-[18rem]"
+                type="text" name="" id="" *ngIf="!modifLastname" [placeholder]="'Modifier le nom'">
+            <input 
+                [(ngModel)]="newLastname"
+                class="text-center bg-transparent border border-slate-300 text-slate-300 h-full pb-1 rounded-lg w-[15.1rem]"
+                type="text" name="" id="" *ngIf="modifLastname" value="{{newLastname}}">
+            <button (click)="toModifLastname()"
+            class="border  rounded-lg px-2 h-full border-red-700 text-red-600 hover:text-slate-200 hover:bg-red-700 duration-500" *ngIf="modifLastname">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                  </svg>
+            </button>
+        </div>
+
+        <div class="flex justify-center items-center h-[2.5rem] gap-1">
+            <input (click)="toModifDob()"
+                class="text-center bg-transparent border border-slate-300 text-slate-300 h-full pb-1 rounded-lg cursor-pointer w-[18rem]"
+                type="text" name="" id="" *ngIf="!modifDob" [placeholder]="'Modifier la date'">
+            <input 
+                [(ngModel)]="newDob"
+                class="text-center bg-transparent border border-slate-300 text-slate-300 h-full pb-1 rounded-lg cursor-text w-[15.1rem]"
+                type="date"  *ngIf="modifDob" [value]="user.dob">
+            <button (click)="toModifDob()"
+            class="border  rounded-lg px-2 h-full border-red-700 text-red-600 hover:text-slate-200 hover:bg-red-700 duration-500" *ngIf="modifDob">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                  </svg>
+            </button>
+        </div>
+        <button (click)="updateInfo()"
+        class="mt-10 border w-[18rem] border-slate-300 text-slate-300 py-2 flex justify-center items-center rounded-lg hover:bg-[#ffbf003b] hover:border-[#ffbf00] duration-500"
+            Modifier
+        *ngIf="valideButton" >
+            Modifier
+        </button>
+    </div>
+</main>

@@ -1,6 +1,5 @@
-<div class="card bg-base-100 shadow-xl w-[25rem]" data-aos="flip-left" data-aos-duration="1000" [attr.data-aos-delay]="delay" 
-[ngClass]="{'animate-none shadow-2xl shadow-[#ffbf0031] hover:animate-pulse duration-300  ': premium}"
->
+<div class="card bg-base-100 shadow-xl w-[25rem]" data-aos="flip-left" data-aos-duration="1000"
+  [attr.data-aos-delay]="delay" [ngClass]="{'animate-none shadow-2xl shadow-[#ffbf0031] duration-300  ': premium}">
   <figure>
     <img class="hover:scale-105 duration-500 cursor-pointer" src={{image}} alt="Shoes" />
   </figure>
@@ -10,16 +9,51 @@
         <span [ngStyle]="{'color': '#' + color}" class="font-bold no-shadow">{{title}}
         </span>
       </h3>
-      <div *ngIf="premium" class="badge badge-warning badge-outline hover:bg-[#ffbf00] hover:text-[#1d232a] cursor-pointer p-3 duration-500">Premium
+      <div *ngIf="premium"
+        class="badge badge-warning badge-outline hover:bg-[#ffbf00] hover:text-[#1d232a] cursor-pointer p-3 duration-500">
+        Premium
       </div>
     </div>
 
     <div class="card-actions justify-end">
-      <button class="btn text-slate-200" [ngStyle]="{
+      <button (click)="goViewShow()"
+      class="btn text-slate-200" [ngStyle]="{
             'background-color': Hover ? 'transparent' : '#' + color,
             'color': Hover ? '#' + color : 'white',
             'border-color': Hover ? '#' + color : 'transparent'
           }" (mouseover)="Hover = true" (mouseleave)="Hover = false">En savoir plus</button>
+    </div>
+  </div>
+</div>
+<div *ngIf="viewShow"
+(click)="goViewShow()"
+class="h-full w-full bg-black/90 z-30 absolute top-0 left-0 flex justify-center items-center duration-500 animate__animated animate__fadeIn">
+  <div class="w-1/2 h-1/2 border-2 border-slate-400 rounded-2xl  z-40 overflow-hidden flex ">
+    <div class="h-full w-1/2 border-r-2 border-slate-400">
+      <img src={{image}} class="h-full w-full">
+    </div>
+    <div class="h-full w-1/2 relative bg-black flex flex-col justify-start items-center py-10">
+      <h1 class="text-slate-200 text-2xl">Composé-<span [ngStyle]="{'color': '#' + color}" class="font-bold no-shadow">{{title}}
+      </span></h1>
+      <div *ngIf="premium"
+        class="badge badge-warning badge-outline hover:bg-[#ffbf00] hover:text-[#1d232a] cursor-pointer p-3 duration-500 absolute top-20">
+        Premium
+      </div>
+      <div class="w-full px-10 mt-12">
+        <h2 class="text-xl text-slate-200 mb-3 font-semibold">Description</h2>
+        <p>{{description}}</p>
+      </div>
+      <div class="w-full px-10 mt-8 text-center">
+        <h2 class="text-2xl text-slate-200 mb-3 font-bold ">Prix</h2>
+        <p class="text-xl font-semibold text-slate-300">{{price}}$ / Dose</p>
+      </div>
+      
+      <button (click)="goViewShow()"
+      class="h-[3rem] w-[3rem] border-b-2 border-l-2 rounded-bl-2xl border-slate-400 absolute top-0 right-0 cursor-pointer flex justify-center items-center">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+      </svg>
+      </button>
     </div>
   </div>
 </div>
